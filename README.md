@@ -51,9 +51,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 |__/     |__/ \_______/|________/ \_______/      |__/ |__/ |__/ \_______/|_______/    \___/   \_______/|__/      
 
 ************RULE OF THIS GAME************
-
-1. You can move only 1 step at a time by arrow key 
-Move Up   : U
+ 1. You can move only 1 step at a time by arrow key 
+ Move Up   : U
 Move Left : L
 Move Down : D
 Move Right: R
