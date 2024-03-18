@@ -2,14 +2,14 @@
 #include<stdlib.h>
 #include<time.h>
 
-void swap(int *x,int *y)
+void swap(int *x,int *y)            //swapping of space in my matrix 
 {
    int temp=*x;
    *x=*y;
    *y=temp;
 }
 
-int realmaze(int maze[][3])
+int realmaze(int maze[][3])        //winning maze condition
 {
     int p=1;
     for(int i=0;i<3;i++)
@@ -28,7 +28,7 @@ int realmaze(int maze[][3])
     return 1;
 }
 
-void galatmaze(int maze[][3]) {
+void galatmaze(int maze[][3]) {                    //maze show in game 
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             if (maze[i][j] == 0) {
@@ -42,7 +42,7 @@ void galatmaze(int maze[][3]) {
     printf("\n");
 }
 
-void move(int maze[][3], char move_d){
+void move(int maze[][3], char move_d){              //move number with U,D,L,R with swapping calling
     if((int)move_d >= 48 && (int)move_d <= 57){
         exit(0);
     }
@@ -55,22 +55,22 @@ void move(int maze[][3], char move_d){
                     if (i > 0) {
                         swap(&maze[i][j], &maze[i - 1][j]);
                     }
-                    break;
+                     return;
                 case 'D': // Down
                     if (i < 2) {
                         swap(&maze[i][j], &maze[i + 1][j]);
                     }
-                    break;
+                    return;
                 case 'L': // Left
                     if (j > 0) {
                         swap(&maze[i][j], &maze[i][j - 1]);
                     }
-                    break;
+                    return;
                 case 'R': // Right
                     if (j < 2) {
                         swap(&maze[i][j], &maze[i][j + 1]);
                     }
-                    break;
+                    return;
                 case 'F': // Right
                    printf("Thanks you playing my game Sir");
                    exit(0);
@@ -90,15 +90,15 @@ int main(){
     int maze[3][3];
     int n=8;
     int brr[n];
-    srand(time(NULL));
+    srand(time(NULL));             //for generating random number
     
-    for (int i = 0; i < n; i++) {
-        brr[i] = i + 1;
+    for (int i = 0; i < n; i++) {             //new array to save random number and print numberwise of its sequence
+        brr[i] = i + 1;  
     }
     
     
     // int lastind=n-1;
-    for(int i=n-1;i>0;i--)
+    for(int i=n-1;i>0;i--)        //random number generator
     {
        int j=rand() % (i+1);
        swap(&brr[i],&brr[j]);
@@ -115,11 +115,11 @@ int main(){
             }
         }
     }
-    maze[2][2]=0;
+    maze[2][2]=0;       //putting one place 0 and print space instaed of 0
 
     char move_d;
     char name[20];
-    system("clear");
+    system("clear");       
 
    
      printf(" /$$      /$$                                                                         /$$                        \n| $$$    /$$$                                                                        | $$                        \n| $$$$  /$$$$  /$$$$$$  /$$$$$$$$  /$$$$$$        /$$$$$$/$$$$   /$$$$$$   /$$$$$$$ /$$$$$$    /$$$$$$   /$$$$$$ \n| $$ $$/$$ $$ |____  $$|____ /$$/ /$$__  $$      | $$_  $$_  $$ |____  $$ /$$_____/|_  $$_/   /$$__  $$ /$$__  $$\n| $$  $$$| $$  /$$$$$$$   /$$$$/ | $$$$$$$$      | $$ \ $$ \ $$  /$$$$$$$|  $$$$$$   | $$    | $$$$$$$$| $$  \__/\n| $$\  $ | $$ /$$__  $$  /$$__/  | $$_____/      | $$ | $$ | $$ /$$__  $$ \____  $$  | $$ /$$| $$_____/| $$      \n| $$ \/  | $$|  $$$$$$$ /$$$$$$$$|  $$$$$$$      | $$ | $$ | $$|  $$$$$$$ /$$$$$$$/  |  $$$$/|  $$$$$$$| $$      \n|__/     |__/ \_______/|________/ \_______/      |__/ |__/ |__/ \_______/|_______/    \___/   \_______/|__/      \n                                                                                                                 \n");
@@ -134,7 +134,7 @@ int main(){
      printf("Enter Your Name:");
     scanf("%s",name);
 
-    while(!realmaze(maze) && moves > 0) {
+    while(!realmaze(maze) && moves > 0) {                  //checking winning condition achieve or not
         system("clear");
         printf("Welcome %s, Moves remaining: %d\n",name,moves);
         galatmaze(maze);
@@ -145,7 +145,7 @@ int main(){
         moves--;
     }
 
-    if (realmaze(maze)!=0) {
+    if (realmaze(maze)!=0) {                                     //altast winning or non winner last note
         printf("Congratulations! You solved the Maze, %s.\n", name);
     } else {
         printf("Game over! You ran out of moves, %s.\n", name);
@@ -153,4 +153,3 @@ int main(){
 
     return 0;
 }
-
