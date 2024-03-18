@@ -42,7 +42,10 @@ void galatmaze(int maze[][3]) {
     printf("\n");
 }
 
-void move(int maze[][3], char move_d) {
+void move(int maze[][3], char move_d){
+    if((int)move_d >= 48 && (int)move_d <= 57){
+        exit(0);
+    }
     int i, j;
     for (i = 0; i < 3; i++) {
         for (j = 0; j < 3; j++) {
@@ -69,7 +72,8 @@ void move(int maze[][3], char move_d) {
                     }
                     break;
                 case 'F': // Right
-                   exit;
+                   printf("Thanks you playing my game Sir");
+                   exit(0);
                     break;
                 
                 return;
@@ -118,7 +122,8 @@ int main(){
     system("clear");
 
    
-    
+     printf(" /$$      /$$                                                                         /$$                        \n| $$$    /$$$                                                                        | $$                        \n| $$$$  /$$$$  /$$$$$$  /$$$$$$$$  /$$$$$$        /$$$$$$/$$$$   /$$$$$$   /$$$$$$$ /$$$$$$    /$$$$$$   /$$$$$$ \n| $$ $$/$$ $$ |____  $$|____ /$$/ /$$__  $$      | $$_  $$_  $$ |____  $$ /$$_____/|_  $$_/   /$$__  $$ /$$__  $$\n| $$  $$$| $$  /$$$$$$$   /$$$$/ | $$$$$$$$      | $$ \ $$ \ $$  /$$$$$$$|  $$$$$$   | $$    | $$$$$$$$| $$  \__/\n| $$\  $ | $$ /$$__  $$  /$$__/  | $$_____/      | $$ | $$ | $$ /$$__  $$ \____  $$  | $$ /$$| $$_____/| $$      \n| $$ \/  | $$|  $$$$$$$ /$$$$$$$$|  $$$$$$$      | $$ | $$ | $$|  $$$$$$$ /$$$$$$$/  |  $$$$/|  $$$$$$$| $$      \n|__/     |__/ \_______/|________/ \_______/      |__/ |__/ |__/ \_______/|_______/    \___/   \_______/|__/      \n                                                                                                                 \n");
+
     printf("************RULE OF THIS GAME************\n");
     printf("\n1. You can move only 1 step at a time by arrow key ");
     printf("\nMove Up   : U");
@@ -148,3 +153,4 @@ int main(){
 
     return 0;
 }
+
